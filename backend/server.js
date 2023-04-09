@@ -1,4 +1,5 @@
 const app = require("./app");
+const connectDB = require("./db/Database");
 const PORT = 8000
 
 //Handling uncaught xception
@@ -13,6 +14,9 @@ if(process.env.NODE_ENV !== "PRODUCTION"){
         path: "backend/config/.env",
     })
 }
+
+//connect DB
+connectDB();
 
 //create server
 const server = app.listen(PORT, () => {
